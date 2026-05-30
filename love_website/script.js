@@ -1,3 +1,4 @@
+const finishButton = document.querySelector("#finishButton");
 const nameSubmitButton = document.querySelector("#nameSubmitButton");
 const yourNameInput = document.querySelector("#yourNameInput");
 const herNameInput = document.querySelector("#herNameInput");
@@ -340,7 +341,12 @@ if (sendHugButton) {
     sendHugButton.textContent = "HUG SENT \uD83D\uDC95";
   });
 }
-
+if (finishButton) {
+  finishButton.addEventListener("click", () => {
+    burst(150);
+    showScreen("final");
+  });
+}
 if (playButton) {
   playButton.addEventListener("click", () => {
     const isPlaying = miniPlayer.classList.toggle("is-playing");

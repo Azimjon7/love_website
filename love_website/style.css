@@ -2093,3 +2093,40 @@ body {
     top: 24px !important;
   }
 }
+.finish-button {
+  margin-top: 18px;
+  min-width: 240px;
+  padding: 16px 30px;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #253141, #cf686a);
+  color: white;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 18px 34px rgba(37, 49, 65, 0.18);
+}
+
+.final-screen {
+  text-align: center;
+}
+
+.final-card {
+  width: min(620px, 92vw);
+  padding: 36px;
+  border-radius: 30px;
+  background: rgba(255, 248, 250, 0.94);
+  box-shadow: 0 34px 90px rgba(207, 104, 106, 0.18);
+}
+
+.final-card h2 {
+  font-size: clamp(2.3rem, 8vw, 4.5rem);
+}
+
+.final-card p {
+  margin: 18px auto 0;
+  max-width: 520px;
+  color: #3f4855;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
