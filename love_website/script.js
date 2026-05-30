@@ -13,6 +13,13 @@ const featuredMemory = document.querySelector("#featuredMemory");
 const featuredMemoryImage = document.querySelector("#featuredMemoryImage");
 const featuredMemoryTitle = document.querySelector("#featuredMemoryTitle");
 const featuredMemoryKicker = document.querySelector("#featuredMemoryKicker");
+const memoryAudio = document.querySelector("#memoryAudio");
+const memoryMusic = document.querySelector(".memory-music");
+const memoryPlayButton = document.querySelector("#memoryPlayButton");
+const memoryProgress = document.querySelector("#memoryProgress");
+const memoryCurrentTime = document.querySelector("#memoryCurrentTime");
+const memoryDuration = document.querySelector("#memoryDuration");
+const firstMeetVideo = document.querySelector("#firstMeetVideo");
 
 let noDodges = 0;
 
@@ -27,6 +34,10 @@ function showScreen(name, options = {}) {
   const { updateHash = true } = options;
 
   document.body.dataset.currentScreen = name;
+
+  if (name !== "detail") {
+    pauseFirstMeetVideo();
+  }
 
   screens.forEach((screen) => {
     screen.hidden = screen.dataset.screen !== name;
@@ -68,6 +79,12 @@ function showPanel(name, options = {}) {
     activePanel.focus({ preventScroll: true });
   }
 
+  if (name === "memories") {
+    window.setTimeout(playFirstMeetVideo, 220);
+  } else {
+    pauseFirstMeetVideo();
+  }
+
   requestAnimationFrame(alignDetailScreen);
   window.setTimeout(alignDetailScreen, 250);
 }
@@ -100,6 +117,55 @@ function createHeart() {
 function burst(count = 24) {
   for (let i = 0; i < count; i++) {
     setTimeout(createHeart, i * 35);
+  }
+}
+
+function formatTime(seconds) {
+  if (!Number.isFinite(seconds)) {
+    return "0:00";
+  }
+
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = Math.floor(seconds % 60).toString().padStart(2, "0");
+  return `${minutes}:${remainingSeconds}`;
+}
+
+function syncMemoryPlayer() {
+  if (!memoryAudio || !memoryProgress || !memoryCurrentTime || !memoryDuration) {
+    return;
+  }
+
+  const duration = memoryAudio.duration || 0;
+  const percent = duration ? (memoryAudio.currentTime / duration) * 100 : 0;
+  memoryProgress.value = String(percent);
+  memoryCurrentTime.textContent = formatTime(memoryAudio.currentTime);
+  memoryDuration.textContent = formatTime(duration);
+}
+
+function setMemoryPlaying(isPlaying) {
+  if (!memoryMusic || !memoryPlayButton) {
+    return;
+  }
+
+  memoryMusic.classList.toggle("is-playing", isPlaying);
+  memoryPlayButton.setAttribute("aria-label", isPlaying ? "Pause memories song" : "Play memories song");
+}
+
+function playFirstMeetVideo() {
+  if (!firstMeetVideo) {
+    return;
+  }
+
+  firstMeetVideo.muted = true;
+  const playPromise = firstMeetVideo.play();
+  if (playPromise) {
+    playPromise.catch(() => {});
+  }
+}
+
+function pauseFirstMeetVideo() {
+  if (firstMeetVideo) {
+    firstMeetVideo.pause();
   }
 }
 
@@ -157,6 +223,37 @@ memoryButtons.forEach((button) => {
     burst(8);
   });
 });
+
+if (memoryAudio && memoryPlayButton && memoryProgress) {
+  memoryPlayButton.addEventListener("click", async () => {
+    try {
+      if (memoryAudio.paused) {
+        await memoryAudio.play();
+      } else {
+        memoryAudio.pause();
+      }
+    } catch {
+      memoryAudio.pause();
+    }
+  });
+
+  memoryAudio.addEventListener("loadedmetadata", syncMemoryPlayer);
+  memoryAudio.addEventListener("timeupdate", syncMemoryPlayer);
+  memoryAudio.addEventListener("play", () => setMemoryPlaying(true));
+  memoryAudio.addEventListener("pause", () => setMemoryPlaying(false));
+  memoryAudio.addEventListener("ended", () => {
+    setMemoryPlaying(false);
+    syncMemoryPlayer();
+  });
+
+  memoryProgress.addEventListener("input", () => {
+    if (!Number.isFinite(memoryAudio.duration)) {
+      return;
+    }
+
+    memoryAudio.currentTime = (Number(memoryProgress.value) / 100) * memoryAudio.duration;
+  });
+}
 
 backButton.addEventListener("click", () => {
   showScreen("gifts");

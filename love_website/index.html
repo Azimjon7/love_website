@@ -1,218 +1,289 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>For You</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="paper-layer" aria-hidden="true"></div>
 
-    <header class="topbar">
-      <a class="brand" href="#surprise" aria-label="Cat gift home">
-        <span class="brand-dot"></span>
-        My love
-      </a>
-      <nav aria-label="Gift sections">
-        <a href="#surprise">surprise</a>
-        <a href="#gifts">gifts</a>
-        <a href="#letter">letter</a>
-        <a href="#memories">memories</a>
-      </nav>
-    </header>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>For You</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-    <main>
-      <section class="screen hero-screen" id="surprise" data-screen="surprise">
-        <div class="float float-one" aria-hidden="true">+</div>
-        <div class="float float-two" aria-hidden="true">&#9834;</div>
-        <div class="float float-three" aria-hidden="true">*</div>
+<body>
+  <div class="paper-layer" aria-hidden="true"></div>
 
-        <div class="hero-copy">
-          <p class="eyebrow">from me, for you</p>
-          <h1>PLS ACCEPT THE GIFT</h1>
-        </div>
+  <header class="topbar">
+    <a class="brand" href="#surprise" aria-label="Cat gift home">
+      <span class="brand-dot"></span>
+      My love
+    </a>
+    <nav aria-label="Gift sections">
+      <a href="#surprise">surprise</a>
+      <a href="#gifts">gifts</a>
+      <a href="#letter">letter</a>
+      <a href="#memories">memories</a>
+    </nav>
+  </header>
 
-        <div class="hero-art">
-          <img src="assets/cat-heart-cutout.png" alt="Cat holding a heart" />
-        </div>
+  <main>
+    <section class="screen hero-screen" id="surprise" data-screen="surprise">
+      <div class="float float-one" aria-hidden="true">+</div>
+      <div class="float float-two" aria-hidden="true">&#9834;</div>
+      <div class="float float-three" aria-hidden="true">*</div>
 
-        <div class="choice-row" aria-label="Accept the gift">
-          <button class="pill-button yes-button" id="yesButton" type="button">
-            YES
-          </button>
-          <button class="pill-button no-button" id="noButton" type="button">
-            NO
-          </button>
-        </div>
-      </section>
+      <div class="hero-copy">
+        <p class="eyebrow">from me, for you</p>
+        <h1>PLS ACCEPT THE GIFT</h1>
+      </div>
 
-      <section class="screen gift-screen" id="gifts" data-screen="gifts" hidden>
-        <div class="section-title">
-          <p class="eyebrow">open one little thing</p>
-          <h2>PRESENT FOR YOU</h2>
-        </div>
+      <div class="hero-art">
+        <img src="assets/cat-heart-cutout.png" alt="Cat holding a heart" />
+      </div>
 
-        <div class="gift-grid" aria-label="Gift choices">
-          <button class="gift-card" type="button" data-gift="letter">
-            <span class="gift-visual gift-letter" aria-hidden="true">&#128140;</span>
-            <span class="gift-label">letter</span>
-          </button>
+      <div class="choice-row" aria-label="Accept the gift">
+        <button class="pill-button yes-button" id="yesButton" type="button">
+          YES
+        </button>
+        <button class="pill-button no-button" id="noButton" type="button">
+          NO
+        </button>
+      </div>
+    </section>
 
-          <button class="gift-card" type="button" data-gift="memories">
-            <span class="gift-visual gift-memories" aria-hidden="true">&#128158;</span>
-            <span class="gift-label">memories</span>
-          </button>
+    <section class="screen gift-screen" id="gifts" data-screen="gifts" hidden>
+      <div class="section-title">
+        <p class="eyebrow">open one little thing</p>
+        <h2>PRESENT FOR YOU</h2>
+      </div>
 
-          <button class="gift-card" type="button" data-gift="hug">
-            <span class="gift-visual gift-hug" aria-hidden="true">&#129392;</span>
-            <span class="gift-label">hug</span>
-          </button>
-        </div>
-        <p class="gift-hint">click any gift to open</p>
-      </section>
-
-      <section class="screen detail-screen" id="letter" data-screen="detail" hidden>
-        <button class="icon-button back-button" id="backButton" type="button" aria-label="Back to gifts">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M19 12H5m0 0 6-6M5 12l6 6" />
-          </svg>
+      <div class="gift-grid" aria-label="Gift choices">
+        <button class="gift-card" type="button" data-gift="letter">
+          <span class="gift-visual gift-letter" aria-hidden="true">&#128140;</span>
+          <span class="gift-label">letter</span>
         </button>
 
-        <article class="panel letter-panel active-panel" data-panel="letter">
-          <div class="panel-copy letter-copy">
-            <p class="eyebrow">kichik sovg'a</p>
-            <h2>MENING ENG QADRLI INSONIM UCHUN</h2>
-            <p>
-              Bugun sen haqingda — mening hayotimdagi eng qadrli, eng mayin va eng go‘zal inson haqida. Men bu kichkina sahifani yaratdim, chunki oddiy xabar yuragimdagi barcha gaplarni aytishga juda kichiklik qildi.
+        <button class="gift-card" type="button" data-gift="memories">
+          <span class="gift-visual gift-memories" aria-hidden="true">&#128158;</span>
+          <span class="gift-label">memories</span>
+        </button>
 
-            </p>
-            <p>
-             Men seni hayotimda eng qadrli inson deb bilaman. To‘g‘risi, seni boshqalar bilan tasavvur qilish o‘zimga og‘ir bo‘ladi. Men senga bunchalar bog‘lanib qolaman deb o‘ylamagandim, lekin vaqt o‘tgan sari qalbim seni yanada ko‘proq xohlab boryapti.
+        <button class="gift-card" type="button" data-gift="hug">
+          <span class="gift-visual gift-hug" aria-hidden="true">&#129392;</span>
+          <span class="gift-label">hug</span>
+        </button>
+      </div>
+      <p class="gift-hint">click any gift to open</p>
+    </section>
 
-Hammasi boshqacha his qilina boshlagan o‘sha lahzani eslaysanmi? Qandaydir tarzda, hatto oddiy kunlar ham sen borliging uchun o‘zgacha bo‘lib qoldi. Sen bor joyda oddiy kunlar ham go‘zal xotiraga aylanadi.
+    <section class="screen detail-screen" id="letter" data-screen="detail" hidden>
+      <button class="icon-button back-button" id="backButton" type="button" aria-label="Back to gifts">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M19 12H5m0 0 6-6M5 12l6 6" />
+        </svg>
+      </button>
 
-            </p>
-          </div>
+      <article class="panel letter-panel active-panel" data-panel="letter">
+        <div class="panel-copy letter-copy">
+          <p class="eyebrow">kichik sovg'a</p>
+          <h2>MENING ENG QADRLI INSONIM UCHUN</h2>
+          <p>
+            Bugun sen haqingda — mening hayotimdagi eng qadrli, eng mayin va eng go‘zal inson haqida. Men bu kichkina
+            sahifani yaratdim, chunki oddiy xabar yuragimdagi barcha gaplarni aytishga juda kichiklik qildi.
 
-          <article class="note-card paper">
-            <span class="sparkle">&#10022;</span><span class="note">&#9834;</span>
-            <h2>For my favorite person</h2>
-            <p>
-              Bilaman, men mukammal emasman. Balki orzuingdagi inson bo‘lmasligim mumkin. Ammo shuni bilgin: men seni chin dildan baxtli qilishga tayyorman. Men seni nafaqat tashqi ko‘rinishing uchun, balki ichingdagi mehr, samimiyat va go‘zal insoniyliging uchun sevaman.
+          </p>
+          <p>
+            Men seni hayotimda eng qadrli inson deb bilaman. To‘g‘risi, seni boshqalar bilan tasavvur qilish o‘zimga
+            og‘ir bo‘ladi. Men senga bunchalar bog‘lanib qolaman deb o‘ylamagandim, lekin vaqt o‘tgan sari qalbim seni
+            yanada ko‘proq xohlab boryapti.
 
-Kulging, sabring, mehring va yonimda bo‘lganing uchun rahmat. Sen mening xotirjamligimsan, eng yoqimli xabarimsan, xavfsiz maskanim va kunimning eng shirin qismisan.
-            </p>
-            <p>
-              Senga qilgan harakatlarimni qadrlashingni istardim. Lekin baribir, nima bo‘lishidan qat’i nazar, seni hech qachon yuragimdan chiqarib tashlay olmayman. Balki sen uchun kichikmandir, arzimaydigandirman, ammo men uchun sen butun dunyoga tengsan.
+            Hammasi boshqacha his qilina boshlagan o‘sha lahzani eslaysanmi? Qandaydir tarzda, hatto oddiy kunlar ham
+            sen borliging uchun o‘zgacha bo‘lib qoldi. Sen bor joyda oddiy kunlar ham go‘zal xotiraga aylanadi.
 
-Shuni bilgin: sendan voz kechmayman. Men seni sevishdan hech qachon to‘xtamayman. Chunki qalbimda joy olgan yagona inson — bu sensan.
+          </p>
+        </div>
 
-            </p>
-            <p class="signature">I love you endlessly &hearts;</p>
-          </article>
+        <article class="note-card paper">
+          <span class="sparkle">&#10022;</span><span class="note">&#9834;</span>
+          <h2>For my favorite person</h2>
+          <p>
+            Bilaman, men mukammal emasman. Balki orzuingdagi inson bo‘lmasligim mumkin. Ammo shuni bilgin: men seni chin
+            dildan baxtli qilishga tayyorman. Men seni nafaqat tashqi ko‘rinishing uchun, balki ichingdagi mehr,
+            samimiyat va go‘zal insoniyliging uchun sevaman.
+
+            Kulging, sabring, mehring va yonimda bo‘lganing uchun rahmat. Sen mening xotirjamligimsan, eng yoqimli
+            xabarimsan, xavfsiz maskanim va kunimning eng shirin qismisan.
+          </p>
+          <p>
+            Senga qilgan harakatlarimni qadrlashingni istardim. Lekin baribir, nima bo‘lishidan qat’i nazar, seni hech
+            qachon yuragimdan chiqarib tashlay olmayman. Balki sen uchun kichikmandir, arzimaydigandirman, ammo men
+            uchun sen butun dunyoga tengsan.
+
+            Shuni bilgin: sendan voz kechmayman. Men seni sevishdan hech qachon to‘xtamayman. Chunki qalbimda joy olgan
+            yagona inson — bu sensan.
+
+          </p>
+          <p class="signature">I love you endlessly &hearts;</p>
         </article>
+      </article>
 
-        <article class="panel memories-panel" data-panel="memories">
-          <div class="memories-copy">
-            <p class="eyebrow">saved moments</p>
-            <h2>OUR LITTLE MEMORIES</h2>
-            <p>
-              I put our photos here like little notes on paper: soft, real,
-              imperfect, and precious. Every frame is another reason I smile.
-            </p>
-            <p class="memory-note">
-              29 May, 20:36 - the folder became a tiny museum of us.
-            </p>
-          </div>
-
-          <div class="memories-stage">
-            <span class="paper-star star-one" aria-hidden="true"></span>
-            <span class="paper-star star-two" aria-hidden="true"></span>
-
-            <div class="memory-stack" aria-hidden="true">
-              <img class="stack-photo stack-one" src="assets/photo_2026-05-29_20-36-33.jpg" alt="" />
-              <img class="stack-photo stack-two" src="assets/photo_2026-05-29_20-36-36.jpg" alt="" />
-              <img class="stack-photo stack-three" src="assets/photo_2026-05-29_20-36-47.jpg" alt="" />
+      <article class="panel memories-panel" data-panel="memories">
+        <div class="memories-copy">
+          <p class="eyebrow">saved moments</p>
+          <h2>OUR LITTLE MEMORIES</h2>
+          <p>
+            Bu yerda bizning eng samimiy xotiralarimiz jamlangan. Har bir surat men uchun oddiy rasm emas — u sen bilan
+            bog‘liq bir lahza, bir tabassum va yuragimga yaqin bir esdalik.
+          </p>
+          <p class="memory-note">
+            13 - Aprel - Hayotimni ozgartirgan kun bolib esimda qoladi.
+          </p>
+          <section class="memory-music" aria-label="Memories music player">
+            <div class="memory-record" aria-hidden="true">
+              <span></span>
             </div>
+            <div class="memory-track">
+              <p class="music-kicker">our song</p>
+              <h3>Xcho &amp; MACAN - Memories</h3>
+              <div class="memory-player-row">
+                <button class="memory-play-button" id="memoryPlayButton" type="button" aria-label="Play memories song">
+                  <svg class="play-shape" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                  <svg class="pause-shape" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M7 5h4v14H7zM13 5h4v14h-4z" />
+                  </svg>
+                </button>
+                <div class="music-progress-wrap">
+                  <input class="memory-progress" id="memoryProgress" type="range" min="0" max="100" value="0" step="0.1" aria-label="Song progress" />
+                  <div class="music-time">
+                    <span id="memoryCurrentTime">0:00</span>
+                    <span id="memoryDuration">0:00</span>
+                  </div>
+                </div>
+              </div>
+              <div class="music-bars" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+            <audio id="memoryAudio" preload="metadata">
+              <source src="assets/memories-song.m4a" type="audio/mp4" />
+            </audio>
+          </section>
+        </div>
 
-            <figure class="featured-memory" id="featuredMemory">
-              <span class="photo-tape tape-left" aria-hidden="true"></span>
-              <span class="photo-tape tape-right" aria-hidden="true"></span>
-              <img
-                id="featuredMemoryImage"
-                src="assets/photo_2026-05-29_20-36-32.jpg"
-                alt="A saved memory together"
-              />
-              <figcaption>
-                <span id="featuredMemoryKicker">20:36 / 29 May</span>
-                <strong id="featuredMemoryTitle">first saved smile</strong>
-              </figcaption>
-            </figure>
+        <figure class="video-memory-card">
+          <span class="photo-tape tape-left" aria-hidden="true"></span>
+          <video id="firstMeetVideo" autoplay muted playsinline controls preload="metadata">
+            <source src="assets/first-meet-video.mp4" type="video/mp4" />
+          </video>
+          <figcaption>
+            <span>first video</span>
+            <strong>first video ever, from when we met each other</strong>
+          </figcaption>
+        </figure>
+
+        <div class="memories-stage">
+          <span class="paper-star star-one" aria-hidden="true"></span>
+          <span class="paper-star star-two" aria-hidden="true"></span>
+
+          <div class="memory-stack" aria-hidden="true">
+            <img class="stack-photo stack-one" src="assets/photo_2026-05-29_20-36-33.jpg" alt="" />
+            <img class="stack-photo stack-two" src="assets/photo_2026-05-29_20-36-36.jpg" alt="" />
+            <img class="stack-photo stack-three" src="assets/photo_2026-05-29_20-36-47.jpg" alt="" />
           </div>
 
-          <div class="memory-strip" aria-label="Choose a memory">
-            <button class="memory-thumb is-active" type="button" data-memory-src="assets/photo_2026-05-29_20-36-32.jpg" data-memory-title="first saved smile" data-memory-kicker="20:36 / 29 May" aria-label="Show first saved smile">
-              <img src="assets/photo_2026-05-29_20-36-32.jpg" alt="" />
-            </button>
-            <button class="memory-thumb" type="button" data-memory-src="assets/photo_2026-05-29_20-36-33.jpg" data-memory-title="coffee date" data-memory-kicker="tiny table, big feeling" aria-label="Show coffee date">
-              <img src="assets/photo_2026-05-29_20-36-33.jpg" alt="" />
-            </button>
-            <button class="memory-thumb" type="button" data-memory-src="assets/photo_2026-05-29_20-36-36 (2).jpg" data-memory-title="close to you" data-memory-kicker="my favorite distance" aria-label="Show close to you">
-              <img src="assets/photo_2026-05-29_20-36-36 (2).jpg" alt="" />
-            </button>
-            <button class="memory-thumb" type="button" data-memory-src="assets/photo_2026-05-29_20-36-36.jpg" data-memory-title="night doorway" data-memory-kicker="a little adventure" aria-label="Show night doorway">
-              <img src="assets/photo_2026-05-29_20-36-36.jpg" alt="" />
-            </button>
-            <button class="memory-thumb" type="button" data-memory-src="assets/photo_2026-05-29_20-36-37.jpg" data-memory-title="little steps" data-memory-kicker="walking beside you" aria-label="Show little steps">
-              <img src="assets/photo_2026-05-29_20-36-37.jpg" alt="" />
-            </button>
-            <button class="memory-thumb" type="button" data-memory-src="assets/photo_2026-05-29_20-36-41 (2).jpg" data-memory-title="soft afternoon" data-memory-kicker="you and me, easy" aria-label="Show soft afternoon">
-              <img src="assets/photo_2026-05-29_20-36-41 (2).jpg" alt="" />
-            </button>
-            <button class="memory-thumb" type="button" data-memory-src="assets/photo_2026-05-29_20-36-41.jpg" data-memory-title="same path" data-memory-kicker="small details I keep" aria-label="Show same path">
-              <img src="assets/photo_2026-05-29_20-36-41.jpg" alt="" />
-            </button>
-            <button class="memory-thumb" type="button" data-memory-src="assets/photo_2026-05-29_20-36-42.jpg" data-memory-title="silly selfie" data-memory-kicker="the kind of happy I love" aria-label="Show silly selfie">
-              <img src="assets/photo_2026-05-29_20-36-42.jpg" alt="" />
-            </button>
-            <button class="memory-thumb" type="button" data-memory-src="assets/photo_2026-05-29_20-36-46.jpg" data-memory-title="walk with you" data-memory-kicker="ordinary, but ours" aria-label="Show walk with you">
-              <img src="assets/photo_2026-05-29_20-36-46.jpg" alt="" />
-            </button>
-            <button class="memory-thumb" type="button" data-memory-src="assets/photo_2026-05-29_20-36-47.jpg" data-memory-title="mirror moment" data-memory-kicker="saved in the best light" aria-label="Show mirror moment">
-              <img src="assets/photo_2026-05-29_20-36-47.jpg" alt="" />
-            </button>
-            <button class="memory-thumb" type="button" data-memory-src="assets/photo_2026-05-29_20-36-49.jpg" data-memory-title="our shoes" data-memory-kicker="standing in the same story" aria-label="Show our shoes">
-              <img src="assets/photo_2026-05-29_20-36-49.jpg" alt="" />
-            </button>
-            <button class="memory-thumb" type="button" data-memory-src="assets/photo_2026-05-29_20-36-50.jpg" data-memory-title="white day" data-memory-kicker="quiet and lovely" aria-label="Show white day">
-              <img src="assets/photo_2026-05-29_20-36-50.jpg" alt="" />
-            </button>
-          </div>
-        </article>
+          <figure class="featured-memory" id="featuredMemory">
+            <span class="photo-tape tape-left" aria-hidden="true"></span>
+            <span class="photo-tape tape-right" aria-hidden="true"></span>
+            <img id="featuredMemoryImage" src="assets/photo_2026-05-29_20-36-32.jpg" alt="A saved memory together" />
+            <figcaption>
+              <span id="featuredMemoryKicker">20:36 / 29 May</span>
+              <strong id="featuredMemoryTitle">first saved smile</strong>
+            </figcaption>
+          </figure>
+        </div>
 
-        <article class="panel hug-panel" data-panel="hug" id="hug">
-          <div class="hug-copy">
-            <p class="eyebrow">final love</p>
-            <h2>SEND A HUG</h2>
-            <p>
-              Press the button below and watch the hearts fly. This is the last
-              little surprise with extra love.
-            </p>
-          </div>
-          <button class="send-hug-button" id="sendHugButton" type="button">SEND HUG</button>
-          <div class="hug-note">
-            <p>Each click sends more hearts into the sky, just like a love letter.</p>
-          </div>
-        </article>
-      </section>
-    </main>
+        <div class="memory-strip" aria-label="Choose a memory">
+          <button class="memory-thumb is-active" type="button" data-memory-src="assets/photo_2026-05-29_20-36-32.jpg"
+            data-memory-title="first saved smile" data-memory-kicker="20:36 / 29 May"
+            aria-label="Show first saved smile">
+            <img src="assets/photo_2026-05-29_20-36-32.jpg" alt="" />
+          </button>
+          <button class="memory-thumb" type="button" data-memory-src="assets/photo_2026-05-29_20-36-33.jpg"
+            data-memory-title="coffee date" data-memory-kicker="tiny table, big feeling" aria-label="Show coffee date">
+            <img src="assets/photo_2026-05-29_20-36-33.jpg" alt="" />
+          </button>
+          <button class="memory-thumb" type="button" data-memory-src="assets/photo_2026-05-29_20-36-36 (2).jpg"
+            data-memory-title="close to you" data-memory-kicker="my favorite distance" aria-label="Show close to you">
+            <img src="assets/photo_2026-05-29_20-36-36 (2).jpg" alt="" />
+          </button>
+          <button class="memory-thumb" type="button" data-memory-src="assets/photo_2026-05-29_20-36-36.jpg"
+            data-memory-title="night doorway" data-memory-kicker="a little adventure" aria-label="Show night doorway">
+            <img src="assets/photo_2026-05-29_20-36-36.jpg" alt="" />
+          </button>
+          <button class="memory-thumb" type="button" data-memory-src="assets/photo_2026-05-29_20-36-37.jpg"
+            data-memory-title="little steps" data-memory-kicker="walking beside you" aria-label="Show little steps">
+            <img src="assets/photo_2026-05-29_20-36-37.jpg" alt="" />
+          </button>
+          <button class="memory-thumb" type="button" data-memory-src="assets/photo_2026-05-29_20-36-41 (2).jpg"
+            data-memory-title="soft afternoon" data-memory-kicker="you and me, easy" aria-label="Show soft afternoon">
+            <img src="assets/photo_2026-05-29_20-36-41 (2).jpg" alt="" />
+          </button>
+          <button class="memory-thumb" type="button" data-memory-src="assets/photo_2026-05-29_20-36-41.jpg"
+            data-memory-title="same path" data-memory-kicker="small details I keep" aria-label="Show same path">
+            <img src="assets/photo_2026-05-29_20-36-41.jpg" alt="" />
+          </button>
+          <button class="memory-thumb" type="button" data-memory-src="assets/photo_2026-05-29_20-36-42.jpg"
+            data-memory-title="silly selfie" data-memory-kicker="the kind of happy I love"
+            aria-label="Show silly selfie">
+            <img src="assets/photo_2026-05-29_20-36-42.jpg" alt="" />
+          </button>
+          <button class="memory-thumb" type="button" data-memory-src="assets/photo_2026-05-29_20-36-46.jpg"
+            data-memory-title="walk with you" data-memory-kicker="ordinary, but ours" aria-label="Show walk with you">
+            <img src="assets/photo_2026-05-29_20-36-46.jpg" alt="" />
+          </button>
+          <button class="memory-thumb" type="button" data-memory-src="assets/photo_2026-05-29_20-36-47.jpg"
+            data-memory-title="mirror moment" data-memory-kicker="saved in the best light"
+            aria-label="Show mirror moment">
+            <img src="assets/photo_2026-05-29_20-36-47.jpg" alt="" />
+          </button>
+          <button class="memory-thumb" type="button" data-memory-src="assets/photo_2026-05-29_20-36-49.jpg"
+            data-memory-title="our shoes" data-memory-kicker="standing in the same story" aria-label="Show our shoes">
+            <img src="assets/photo_2026-05-29_20-36-49.jpg" alt="" />
+          </button>
+          <button class="memory-thumb" type="button" data-memory-src="assets/photo_2026-05-29_20-36-50.jpg"
+            data-memory-title="white day" data-memory-kicker="quiet and lovely" aria-label="Show white day">
+            <img src="assets/photo_2026-05-29_20-36-50.jpg" alt="" />
+          </button>
+        </div>
+      </article>
 
-    <footer class="caption">
-      &ldquo;I made a website for you&rdquo;
-    </footer>
+      <article class="panel hug-panel" data-panel="hug" id="hug">
+        <div class="hug-copy">
+          <p class="eyebrow">final love</p>
+          <h2>SEND A HUG</h2>
+          <p>
+            Press the button below and watch the hearts fly. This is the last
+            little surprise with extra love.
+          </p>
+        </div>
+        <button class="send-hug-button" id="sendHugButton" type="button">SEND HUG</button>
+        <div class="hug-note">
+          <p>Each click sends more hearts into the sky, just like a love letter.</p>
+        </div>
+      </article>
+    </section>
+  </main>
 
-    <div class="hearts" id="hearts"></div>
-    <script src="script.js"></script>
-  </body>
+  <footer class="caption">
+    &ldquo;I made a website for you&rdquo;
+  </footer>
+
+  <div class="hearts" id="hearts"></div>
+  <script src="script.js"></script>
+</body>
+
 </html>
