@@ -1408,3 +1408,563 @@ body[data-current-screen="detail"] .caption {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ============================= */
+/* EXTRA ROMANTIC DREAMY STYLE */
+/* Add this at the VERY BOTTOM */
+/* ============================= */
+
+body {
+  background:
+    radial-gradient(circle at 15% 20%, rgba(255, 183, 207, 0.35), transparent 28%),
+    radial-gradient(circle at 85% 28%, rgba(255, 220, 160, 0.24), transparent 26%),
+    radial-gradient(circle at 50% 90%, rgba(158, 201, 221, 0.22), transparent 30%),
+    linear-gradient(135deg, #fffaf7, #eef3ef 45%, #fff2f5);
+  animation: dreamyBg 12s ease-in-out infinite alternate;
+}
+
+.paper-layer {
+  opacity: 0.85;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255, 128, 170, 0.12), transparent 18%),
+    radial-gradient(circle at 80% 70%, rgba(207, 104, 106, 0.1), transparent 18%),
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.18) 0px,
+      rgba(255, 255, 255, 0.18) 1px,
+      transparent 1px,
+      transparent 7px
+    ),
+    linear-gradient(115deg, transparent 0 13%, rgba(37, 49, 65, 0.045) 13.5% 14.5%, transparent 15% 38%);
+  animation: paperFloat 18s ease-in-out infinite alternate;
+}
+
+.topbar {
+  background: rgba(31, 40, 58, 0.82);
+  box-shadow: 0 16px 40px rgba(37, 49, 65, 0.16);
+}
+
+.brand-dot {
+  animation: softPulse 1.8s ease-in-out infinite;
+}
+
+.topbar nav a {
+  position: relative;
+}
+
+.topbar nav a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -7px;
+  width: 0;
+  height: 2px;
+  border-radius: 99px;
+  background: #ff9fba;
+  transform: translateX(-50%);
+  transition: width 220ms ease;
+}
+
+.topbar nav a:hover::after {
+  width: 100%;
+}
+
+.panel {
+  animation: magicPanelIn 650ms cubic-bezier(.2, .8, .2, 1) both;
+}
+
+.letter-copy .eyebrow,
+.memories-copy .eyebrow,
+.hug-copy .eyebrow {
+  animation: fadeSlideDown 700ms ease both;
+}
+
+.letter-copy h2,
+.memories-copy h2,
+.hug-copy h2 {
+  text-shadow: 0 14px 38px rgba(37, 49, 65, 0.12);
+  animation: titleReveal 850ms cubic-bezier(.2, .8, .2, 1) both;
+}
+
+.letter-copy p,
+.memories-copy p,
+.hug-copy p {
+  animation: softTextIn 900ms ease both;
+}
+
+.note-card {
+  border-radius: 22px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(255, 241, 246, 0.96)),
+    radial-gradient(circle at 20% 10%, rgba(255, 183, 207, 0.35), transparent 24%);
+  box-shadow:
+    0 34px 90px rgba(37, 49, 65, 0.14),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.55);
+  transform: rotate(1deg);
+  transition: transform 260ms ease, box-shadow 260ms ease;
+  overflow: hidden;
+}
+
+.note-card::before {
+  content: "";
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  width: 110px;
+  height: 34px;
+  background:
+    linear-gradient(90deg, rgba(255,255,255,.35), transparent 48%, rgba(255,255,255,.22)),
+    rgba(255, 197, 118, 0.5);
+  border: 1px solid rgba(154, 119, 55, 0.12);
+  transform: translateX(-50%) rotate(-3deg);
+  box-shadow: 0 8px 18px rgba(37, 49, 65, 0.08);
+}
+
+.note-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.42) 48%, transparent 58%);
+  transform: translateX(-120%);
+  animation: cardShine 5.5s ease-in-out infinite;
+}
+
+.note-card:hover {
+  transform: translateY(-8px) rotate(0deg) scale(1.01);
+  box-shadow: 0 42px 100px rgba(37, 49, 65, 0.18);
+}
+
+.sparkle {
+  animation: sparkleSpin 3s ease-in-out infinite;
+}
+
+.note {
+  animation: musicFloat 2.2s ease-in-out infinite alternate;
+}
+
+.gift-card {
+  border-radius: 26px;
+  background:
+    radial-gradient(circle at 20% 18%, rgba(255, 255, 255, 0.95), transparent 28%),
+    linear-gradient(135deg, #fff7f7, #ffe2ea 55%, #fff5ef);
+  box-shadow:
+    0 28px 70px rgba(37, 49, 65, 0.12),
+    inset 0 0 0 1px rgba(255,255,255,0.6);
+}
+
+.gift-card:hover,
+.gift-card:focus-visible {
+  transform: translateY(-12px) rotate(0deg) scale(1.025);
+  box-shadow:
+    0 38px 92px rgba(207, 104, 106, 0.22),
+    0 0 0 7px rgba(255, 183, 207, 0.16);
+}
+
+.gift-visual {
+  animation: giftFloat 2.5s ease-in-out infinite alternate;
+}
+
+.memory-music {
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 18% 20%, rgba(255,255,255,0.95), transparent 28%),
+    linear-gradient(135deg, rgba(255, 253, 248, 0.98), rgba(255, 228, 237, 0.92));
+  box-shadow:
+    0 26px 66px rgba(37, 49, 65, 0.14),
+    0 0 0 1px rgba(255,255,255,0.8) inset;
+  transition: transform 240ms ease, box-shadow 240ms ease;
+}
+
+.memory-music:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 34px 80px rgba(207, 104, 106, 0.18),
+    0 0 0 1px rgba(255,255,255,0.8) inset;
+}
+
+.memory-music.is-playing {
+  animation: musicGlow 1.8s ease-in-out infinite alternate;
+}
+
+.memory-record {
+  box-shadow:
+    inset 0 0 0 4px rgba(255, 255, 255, 0.08),
+    0 18px 34px rgba(37, 49, 65, 0.22),
+    0 0 0 8px rgba(207, 104, 106, 0.08);
+}
+
+.featured-memory,
+.video-memory-card,
+.memory-thumb {
+  border-radius: 18px;
+}
+
+.featured-memory {
+  animation: polaroidFloat 4s ease-in-out infinite alternate;
+}
+
+.featured-memory:hover {
+  transform: translateY(-10px) rotate(0deg) scale(1.018);
+}
+
+.memory-thumb:hover,
+.memory-thumb:focus-visible,
+.memory-thumb.is-active {
+  transform: translateY(-9px) rotate(0deg) scale(1.04);
+}
+
+.photo-tape {
+  border-radius: 6px;
+  backdrop-filter: blur(2px);
+}
+
+.paper-star {
+  animation: starWiggle 2.5s ease-in-out infinite alternate;
+}
+
+.star-two {
+  animation-delay: -1s;
+}
+
+.hearts span {
+  filter: drop-shadow(0 8px 12px rgba(207, 104, 106, 0.22));
+}
+
+.float {
+  animation: dreamyDrift 5s ease-in-out infinite alternate;
+}
+
+.back-button {
+  transition: transform 220ms ease, background 220ms ease, box-shadow 220ms ease;
+}
+
+.back-button:hover {
+  transform: translateY(-3px) scale(1.06);
+  box-shadow: 0 18px 38px rgba(37, 49, 65, 0.18);
+}
+
+/* New animations */
+
+@keyframes dreamyBg {
+  from {
+    background-position: 0% 0%;
+  }
+  to {
+    background-position: 100% 100%;
+  }
+}
+
+@keyframes paperFloat {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(12px, -10px, 0) scale(1.02);
+  }
+}
+
+@keyframes magicPanelIn {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.985);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes titleReveal {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.97);
+    letter-spacing: -0.04em;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    letter-spacing: 0;
+  }
+}
+
+@keyframes fadeSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes softTextIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cardShine {
+  0%, 55% {
+    transform: translateX(-120%);
+  }
+  75%, 100% {
+    transform: translateX(120%);
+  }
+}
+
+@keyframes sparkleSpin {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.22) rotate(18deg);
+    opacity: 1;
+  }
+}
+
+@keyframes musicFloat {
+  from {
+    transform: translateY(0) rotate(-4deg);
+  }
+  to {
+    transform: translateY(-8px) rotate(8deg);
+  }
+}
+
+@keyframes giftFloat {
+  from {
+    transform: translateY(0) rotate(-2deg);
+  }
+  to {
+    transform: translateY(-8px) rotate(3deg);
+  }
+}
+
+@keyframes musicGlow {
+  from {
+    box-shadow:
+      0 26px 66px rgba(37, 49, 65, 0.14),
+      0 0 0 1px rgba(255,255,255,0.8) inset;
+  }
+  to {
+    box-shadow:
+      0 34px 90px rgba(207, 104, 106, 0.24),
+      0 0 0 1px rgba(255,255,255,0.8) inset,
+      0 0 36px rgba(255, 151, 180, 0.35);
+  }
+}
+
+@keyframes polaroidFloat {
+  from {
+    transform: translateY(0) rotate(-1.2deg);
+  }
+  to {
+    transform: translateY(-8px) rotate(0.8deg);
+  }
+}
+
+@keyframes starWiggle {
+  from {
+    transform: rotate(12deg) scale(1);
+  }
+  to {
+    transform: rotate(24deg) scale(1.08);
+  }
+}
+
+@keyframes dreamyDrift {
+  from {
+    transform: translate3d(0, 0, 0) rotate(-8deg) scale(1);
+  }
+  to {
+    transform: translate3d(16px, -22px, 0) rotate(10deg) scale(1.08);
+  }
+}
+
+@keyframes softPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 4px rgba(207, 104, 106, 0.18);
+  }
+  50% {
+    transform: scale(1.15);
+    box-shadow: 0 0 0 8px rgba(207, 104, 106, 0.08);
+  }
+}
+.name-screen {
+  text-align: center;
+}
+
+.name-card {
+  display: grid;
+  gap: 18px;
+  width: min(460px, 100%);
+  padding: 34px;
+  border-radius: 30px;
+  background: rgba(255, 248, 250, 0.92);
+  box-shadow: 0 34px 90px rgba(207, 104, 106, 0.18);
+  border: 1px solid rgba(207, 104, 106, 0.22);
+  animation: magicPanelIn 650ms ease both;
+}
+
+.name-card h1 {
+  font-size: clamp(2.2rem, 8vw, 4rem);
+}
+
+.name-card input {
+  width: 100%;
+  padding: 16px 18px;
+  border: 2px solid rgba(207, 104, 106, 0.35);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  outline: none;
+  transition: 0.2s ease;
+}
+
+.name-card input:focus {
+  border-color: var(--red);
+  box-shadow: 0 0 0 6px rgba(207, 104, 106, 0.12);
+}
+
+.name-error {
+  min-height: 24px;
+  margin: 0;
+  color: var(--red-dark);
+  font-weight: 800;
+}
+
+.heart-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 245, 248, 0.88);
+  backdrop-filter: blur(10px);
+  animation: fadeIn 250ms ease both;
+}
+
+.heart-loader[hidden] {
+  display: none !important;
+}
+
+.big-heart {
+  font-size: 6rem;
+  animation: heartOpen 1.8s ease-out forwards;
+}
+
+
+.heart-loader p {
+  margin: 12px 0 0;
+  color: var(--red-dark);
+  font-size: 1.4rem;
+  font-weight: 900;
+}
+
+@keyframes heartOpen {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(40);
+    opacity: 0;
+  }
+}
+@media (max-width: 768px) {
+
+  .panel-layout,
+  .letter-layout,
+  .memories-layout,
+  .hug-layout {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  .letter-copy h2,
+  .memories-copy h2,
+  .hug-copy h2 {
+    font-size: clamp(2.4rem, 12vw, 4rem) !important;
+    line-height: 0.95 !important;
+  }
+
+  .note-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    transform: none !important;
+  }
+
+  .gift-card {
+    min-height: auto !important;
+    padding: 20px !important;
+  }
+
+  .featured-memory {
+    min-height: auto !important;
+  }
+
+  .featured-memory img,
+  .featured-memory video {
+    height: 260px !important;
+    object-fit: cover !important;
+  }
+
+  .memory-thumbs {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .memory-thumb {
+    min-height: 120px !important;
+  }
+
+  .memory-music {
+    padding: 18px !important;
+  }
+
+  .name-card {
+    width: 100% !important;
+    padding: 24px !important;
+  }
+
+  .name-card h1 {
+    font-size: 2rem !important;
+  }
+
+  .big-heart {
+    font-size: 4rem !important;
+  }
+
+  .back-button {
+    width: 52px !important;
+    height: 52px !important;
+  }
+
+  .topbar {
+    padding: 12px 16px !important;
+  }
+
+  .topbar nav {
+    gap: 12px !important;
+    font-size: 0.85rem !important;
+  }
+}

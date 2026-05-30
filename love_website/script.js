@@ -1,3 +1,8 @@
+const nameSubmitButton = document.querySelector("#nameSubmitButton");
+const yourNameInput = document.querySelector("#yourNameInput");
+const herNameInput = document.querySelector("#herNameInput");
+const nameError = document.querySelector("#nameError");
+const heartLoader = document.querySelector("#heartLoader");
 const screens = Array.from(document.querySelectorAll("[data-screen]"));
 const yesButton = document.querySelector("#yesButton");
 const noButton = document.querySelector("#noButton");
@@ -37,6 +42,7 @@ function showScreen(name, options = {}) {
 
   if (name !== "detail") {
     pauseFirstMeetVideo();
+    stopMemoryAudio();
   }
 
   screens.forEach((screen) => {
@@ -81,8 +87,10 @@ function showPanel(name, options = {}) {
 
   if (name === "memories") {
     window.setTimeout(playFirstMeetVideo, 220);
+    window.setTimeout(playMemoryAudio, 260);
   } else {
     pauseFirstMeetVideo();
+    stopMemoryAudio();
   }
 
   requestAnimationFrame(alignDetailScreen);
@@ -151,6 +159,28 @@ function setMemoryPlaying(isPlaying) {
   memoryPlayButton.setAttribute("aria-label", isPlaying ? "Pause memories song" : "Play memories song");
 }
 
+async function playMemoryAudio() {
+  if (!memoryAudio) {
+    return;
+  }
+
+  try {
+    memoryAudio.loop = true;
+    await memoryAudio.play();
+  } catch {
+    setMemoryPlaying(false);
+  }
+}
+
+function stopMemoryAudio() {
+  if (!memoryAudio) {
+    return;
+  }
+
+  memoryAudio.pause();
+  setMemoryPlaying(false);
+}
+
 function playFirstMeetVideo() {
   if (!firstMeetVideo) {
     return;
@@ -200,6 +230,28 @@ function selectMemory(button) {
 }
 
 setInterval(createHeart, 900);
+
+if (nameSubmitButton) {
+  nameSubmitButton.addEventListener("click", () => {
+    const yourName = yourNameInput.value.trim().toLowerCase();
+    const herName = herNameInput.value.trim().toLowerCase();
+
+   if (
+  (yourName === "azimjon" && herName === "charos") ||
+  (yourName === "charos" && herName === "azimjon")
+) {
+  nameError.textContent = "";
+  heartLoader.hidden = false;
+  burst(45);
+
+  setTimeout(() => {
+    showScreen("surprise");
+  }, 1800);
+} else {
+  nameError.textContent = "Bizning ismlarimizni yozib ko‘r ❤️";
+}
+  });
+}
 
 yesButton.addEventListener("click", () => {
   burst(35);
@@ -310,7 +362,7 @@ function showFromHash() {
     return;
   }
 
-  showScreen("surprise", { updateHash: false });
+  showScreen("nameGate", { updateHash: false });
 }
 
 window.addEventListener("hashchange", showFromHash);

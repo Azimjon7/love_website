@@ -24,8 +24,31 @@
     </nav>
   </header>
 
+
+
   <main>
-    <section class="screen hero-screen" id="surprise" data-screen="surprise">
+
+    <section class="screen name-screen" id="nameGate" data-screen="nameGate">
+  <div class="name-card">
+    <p class="eyebrow">special entrance</p>
+    <h1>Ismlarimizni yoz 💌</h1>
+
+    <input id="yourNameInput" type="text" placeholder="Sening isming..." />
+    <input id="herNameInput" type="text" placeholder="Uning ismi..." />
+
+    <button class="pill-button" id="nameSubmitButton" type="button">
+      OPEN LOVE PAGE
+    </button>
+
+    <p class="name-error" id="nameError"></p>
+  </div>
+
+  <div class="heart-loader" id="heartLoader" hidden>
+    <div class="big-heart">❤️</div>
+    <p>Azimjon + Charos</p>
+  </div>
+</section>
+    <section class="screen hero-screen" id="surprise" data-screen="surprise" hidden>
       <div class="float float-one" aria-hidden="true">+</div>
       <div class="float float-two" aria-hidden="true">&#9834;</div>
       <div class="float float-three" aria-hidden="true">*</div>
@@ -168,8 +191,8 @@
                 <span></span>
               </div>
             </div>
-            <audio id="memoryAudio" preload="metadata">
-              <source src="assets/memories-song.m4a" type="audio/mp4" />
+            <audio id="memoryAudio" preload="auto" loop>
+               <source src="assets/memories-song.m4a" type="audio/mp4" />
             </audio>
           </section>
         </div>
@@ -200,7 +223,7 @@
             <span class="photo-tape tape-right" aria-hidden="true"></span>
             <img id="featuredMemoryImage" src="assets/photo_2026-05-29_20-36-32.jpg" alt="A saved memory together" />
             <figcaption>
-              <span id="featuredMemoryKicker">20:36 / 29 May</span>
+              <span id="featuredMemoryKicker"> 14 May</span>
               <strong id="featuredMemoryTitle">first saved smile</strong>
             </figcaption>
           </figure>
@@ -208,7 +231,7 @@
 
         <div class="memory-strip" aria-label="Choose a memory">
           <button class="memory-thumb is-active" type="button" data-memory-src="assets/photo_2026-05-29_20-36-32.jpg"
-            data-memory-title="first saved smile" data-memory-kicker="20:36 / 29 May"
+            data-memory-title="first saved smile" data-memory-kicker="14 May"
             aria-label="Show first saved smile">
             <img src="assets/photo_2026-05-29_20-36-32.jpg" alt="" />
           </button>
