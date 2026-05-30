@@ -1,0 +1,220 @@
+const screens = Array.from(document.querySelectorAll("[data-screen]"));
+const yesButton = document.querySelector("#yesButton");
+const noButton = document.querySelector("#noButton");
+const backButton = document.querySelector("#backButton");
+const giftButtons = Array.from(document.querySelectorAll("[data-gift]"));
+const panels = Array.from(document.querySelectorAll("[data-panel]"));
+const miniPlayer = document.querySelector("#miniPlayer");
+const playButton = document.querySelector("#playButton");
+const hearts = document.querySelector("#hearts");
+const sendHugButton = document.querySelector("#sendHugButton");
+const memoryButtons = Array.from(document.querySelectorAll(".memory-thumb"));
+const featuredMemory = document.querySelector("#featuredMemory");
+const featuredMemoryImage = document.querySelector("#featuredMemoryImage");
+const featuredMemoryTitle = document.querySelector("#featuredMemoryTitle");
+const featuredMemoryKicker = document.querySelector("#featuredMemoryKicker");
+
+let noDodges = 0;
+
+function setHash(name) {
+  const nextHash = `#${name}`;
+  if (window.location.hash !== nextHash) {
+    history.pushState(null, "", nextHash);
+  }
+}
+
+function showScreen(name, options = {}) {
+  const { updateHash = true } = options;
+
+  document.body.dataset.currentScreen = name;
+
+  screens.forEach((screen) => {
+    screen.hidden = screen.dataset.screen !== name;
+  });
+
+  if (updateHash) {
+    setHash(name);
+  }
+
+  const nextScreen = screens.find((screen) => screen.dataset.screen === name);
+  if (nextScreen) {
+    nextScreen.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+}
+
+function alignDetailScreen() {
+  const detailScreen = screens.find((screen) => screen.dataset.screen === "detail");
+  if (detailScreen && !detailScreen.hidden) {
+    detailScreen.scrollIntoView({ behavior: "auto", block: "start" });
+  }
+}
+
+function showPanel(name, options = {}) {
+  const { updateHash = true } = options;
+
+  panels.forEach((panel) => {
+    panel.classList.toggle("active-panel", panel.dataset.panel === name);
+  });
+
+  showScreen("detail", { updateHash: false });
+
+  if (updateHash) {
+    setHash(name);
+  }
+
+  const activePanel = panels.find((panel) => panel.dataset.panel === name);
+  if (activePanel) {
+    activePanel.setAttribute("tabindex", "-1");
+    activePanel.focus({ preventScroll: true });
+  }
+
+  requestAnimationFrame(alignDetailScreen);
+  window.setTimeout(alignDetailScreen, 250);
+}
+
+function dodgeNoButton() {
+  noDodges += 1;
+  const rangeX = window.innerWidth < 540 ? 72 : 150;
+  const rangeY = window.innerWidth < 540 ? 36 : 54;
+  const x = Math.round((Math.random() * 2 - 1) * rangeX);
+  const y = Math.round((Math.random() * 2 - 1) * rangeY);
+
+  noButton.style.transform = `translate(${x}px, ${y}px)`;
+
+  if (noDodges > 3) {
+    noButton.textContent = "YES?";
+  }
+}
+
+function createHeart() {
+  if (!hearts) return;
+  const heart = document.createElement("span");
+  heart.textContent = Math.random() > 0.45 ? "\u2665" : "\uD83D\uDC95";
+  heart.style.left = `${Math.random() * 100}vw`;
+  heart.style.fontSize = `${18 + Math.random() * 26}px`;
+  heart.style.animationDuration = `${3.5 + Math.random() * 3}s`;
+  hearts.appendChild(heart);
+  setTimeout(() => heart.remove(), 8000);
+}
+
+function burst(count = 24) {
+  for (let i = 0; i < count; i++) {
+    setTimeout(createHeart, i * 35);
+  }
+}
+
+function selectMemory(button) {
+  if (!featuredMemory || !featuredMemoryImage || !featuredMemoryTitle || !featuredMemoryKicker) {
+    return;
+  }
+
+  const nextSource = button.dataset.memorySrc;
+  const nextTitle = button.dataset.memoryTitle || "saved memory";
+  const nextKicker = button.dataset.memoryKicker || "our little moment";
+
+  if (!nextSource) {
+    return;
+  }
+
+  memoryButtons.forEach((item) => {
+    item.classList.toggle("is-active", item === button);
+  });
+
+  featuredMemory.classList.add("is-changing");
+
+  window.setTimeout(() => {
+    featuredMemoryImage.src = nextSource;
+    featuredMemoryImage.alt = `Memory: ${nextTitle}`;
+    featuredMemoryTitle.textContent = nextTitle;
+    featuredMemoryKicker.textContent = nextKicker;
+    featuredMemory.classList.remove("is-changing");
+  }, 150);
+
+  button.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+}
+
+setInterval(createHeart, 900);
+
+yesButton.addEventListener("click", () => {
+  burst(35);
+  showScreen("gifts");
+});
+
+noButton.addEventListener("pointerenter", dodgeNoButton);
+noButton.addEventListener("focus", dodgeNoButton);
+noButton.addEventListener("click", dodgeNoButton);
+
+giftButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    burst(20);
+    showPanel(button.dataset.gift);
+  });
+});
+
+memoryButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    selectMemory(button);
+    burst(8);
+  });
+});
+
+backButton.addEventListener("click", () => {
+  showScreen("gifts");
+});
+
+document.querySelectorAll(".topbar a[href^='#']").forEach((link) => {
+  link.addEventListener("click", (event) => {
+    const target = link.getAttribute("href").slice(1);
+
+    if (target === "gifts") {
+      event.preventDefault();
+      showScreen("gifts");
+      return;
+    }
+
+    if (target === "letter" || target === "memories") {
+      event.preventDefault();
+      showPanel(target);
+      return;
+    }
+
+    if (target === "surprise") {
+      event.preventDefault();
+      showScreen("surprise");
+    }
+  });
+});
+
+if (sendHugButton) {
+  sendHugButton.addEventListener("click", () => {
+    burst(120);
+    sendHugButton.textContent = "HUG SENT \uD83D\uDC95";
+  });
+}
+
+if (playButton) {
+  playButton.addEventListener("click", () => {
+    const isPlaying = miniPlayer.classList.toggle("is-playing");
+    playButton.setAttribute("aria-pressed", String(isPlaying));
+    playButton.setAttribute("aria-label", isPlaying ? "Pause playlist" : "Play playlist");
+  });
+}
+
+function showFromHash() {
+  const target = window.location.hash.slice(1);
+
+  if (target === "gifts" || target === "surprise") {
+    showScreen(target, { updateHash: false });
+    return;
+  }
+
+  if (panels.some((panel) => panel.dataset.panel === target)) {
+    showPanel(target, { updateHash: false });
+    return;
+  }
+
+  showScreen("surprise", { updateHash: false });
+}
+
+window.addEventListener("hashchange", showFromHash);
+showFromHash();
