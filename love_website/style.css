@@ -1968,3 +1968,128 @@ body {
     font-size: 0.85rem !important;
   }
 }
+
+/* MOBILE FIXES */
+@media (max-width: 768px) {
+
+  .topbar {
+    position: sticky !important;
+    top: 0;
+    min-height: auto !important;
+    padding: 10px 14px !important;
+  }
+
+  /* Telefonda menu yashiriladi */
+  .topbar nav {
+    display: none !important;
+  }
+
+  .screen {
+    padding-top: 24px !important;
+  }
+
+  .gift-screen {
+    padding-top: 95px !important;
+    gap: 18px !important;
+    min-height: 100svh !important;
+    justify-content: center !important;
+  }
+
+  /* 3 ta gift bitta qatorda */
+  .gift-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 8px !important;
+    width: 100% !important;
+    max-width: 390px !important;
+    margin: 0 auto !important;
+  }
+
+  .gift-card {
+    min-height: 150px !important;
+    padding: 10px 6px !important;
+    border-radius: 20px !important;
+  }
+
+  .gift-visual {
+    width: 60px !important;
+    font-size: 2.2rem !important;
+  }
+
+  .gift-label {
+    font-size: 0.72rem !important;
+    letter-spacing: 0.08em !important;
+  }
+
+  .gift-hint {
+    margin-top: 12px !important;
+    margin-bottom: 0 !important;
+    font-size: 0.7rem !important;
+    letter-spacing: 0.14em !important;
+  }
+
+  .detail-screen {
+    padding-top: 72px !important;
+  }
+
+  .back-button {
+    top: 86px !important;
+    left: 18px !important;
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  .featured-memory {
+    width: min(330px, 88vw) !important;
+    padding: 12px 12px 20px !important;
+  }
+
+  /* Rasmlar kesilmasin */
+  .featured-memory img {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    background: #fffdf8 !important;
+  }
+
+  .stack-photo,
+  .memory-thumb img {
+    object-fit: contain !important;
+    object-position: center center !important;
+    background: #fffdf8 !important;
+  }
+
+  .memories-stage {
+    min-height: auto !important;
+    padding-top: 20px !important;
+  }
+
+  .memory-stack {
+    display: none !important;
+  }
+
+  .memory-strip {
+    margin-top: 20px !important;
+    padding-bottom: 22px !important;
+  }
+
+  .caption {
+    display: none !important;
+  }
+}
+@media (max-width: 768px) {
+  .topbar {
+    display: none !important;
+  }
+
+  .screen,
+  .gift-screen,
+  .detail-screen {
+    padding-top: 24px !important;
+  }
+
+  .back-button {
+    top: 24px !important;
+  }
+}
